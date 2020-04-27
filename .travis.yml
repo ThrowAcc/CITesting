@@ -5,7 +5,12 @@ os: linux
 
 env:
   matrix:
-    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address,leak,undefined" LDFLAGS="--coverage -lasan -lubsan" GCOV="--gcov-tool gcov-7" TOOLSET=gcc-7
+    - BUILD_TYPE=Debug 
+    - CXXFLAGS="--coverage -fsanitize=address" 
+    - LDFLAGS="--coverage -fsanitize=address" 
+    - GCOV="--gcov-tool gcov-7"
+    - CC=gcc-7
+    - CXX=g++-7
 
 addons:
   apt:
@@ -16,8 +21,6 @@ addons:
       - lcov
 
 script:
-  - export CC=gcc-7
-  - export CXX=g++-7
   - cmake --version
   - cmake CMakeLists.txt
   - cmake  --build . --target
