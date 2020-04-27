@@ -15,3 +15,5 @@ script:
   - cmake --version
   - cmake CMakeLists.txt
   - cmake  --build . --target
+  - make
+  - ctest
