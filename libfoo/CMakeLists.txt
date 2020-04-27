@@ -17,6 +17,13 @@ add_library(
 	${SOURCES}
 )
 
+set_target_properties(
+	libfoo
+	PROPERTIES
+	COMPILE_FLAGS "--coverage"
+	LINK_FLAGS "--coverage"
+)
+
 target_include_directories(
   libfoo
   PUBLIC
