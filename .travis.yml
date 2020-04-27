@@ -8,6 +8,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
+      - lcov
 
 script:
   - export CC=gcc-7
@@ -17,3 +18,9 @@ script:
   - cmake  --build . --target
   - make
   - ctest
+
+after_success:
+  - lcov --capture --directory . --output-file coverage.info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info 
+  - lcov --list coverage.info 
+  - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
