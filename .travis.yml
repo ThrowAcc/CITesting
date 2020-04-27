@@ -5,7 +5,7 @@ os: linux
 
 env:
   matrix:
-    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address,leak,undefined" LDFLAGS="--coverage -lasan -lubsan" CC=gcc-7 CXX=g++-7 GCOV="--gcov-tool gcov-7" TOOLSET=gcc-7
+    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address,leak,undefined" LDFLAGS="--coverage -lasan -lubsan" GCOV="--gcov-tool gcov-7" TOOLSET=gcc-7
 
 addons:
   apt:
