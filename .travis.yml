@@ -5,12 +5,7 @@ os: linux
 
 env:
   matrix:
-    - BUILD_TYPE=Debug 
-    - CXXFLAGS="--coverage -fsanitize=address" 
-    - LDFLAGS="--coverage -fsanitize=address" 
-    - GCOV="--gcov-tool gcov-7"
-    - CC=gcc-7
-    - CXX=g++-7
+    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address" LDFLAGS="--coverage -fsanitize=address" GCOV="--gcov-tool gcov-7"
 
 addons:
   apt:
