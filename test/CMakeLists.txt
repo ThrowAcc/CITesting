@@ -9,7 +9,7 @@ add_executable(${BINARY} ${TEST_SOURCES})
 set_target_properties(
 	libfoo
 	PROPERTIES
-	COMPILE_FLAGS "--coverage"
+	COMPILE_FLAGS "--coverage -std=c++17"
 	LINK_FLAGS "--coverage"
 )
 
