@@ -11,6 +11,14 @@ set(SOURCES
    src/ClassA.cpp
 )
 
+target_compile_options(coverage_config INTERFACE
+   -O0        # no optimization
+   -g         # generate debug info
+   --coverage # sets all required flags
+)
+
+target_link_options(coverage_config INTERFACE --coverage)
+
 add_library(
 	libfoo
 	STATIC
