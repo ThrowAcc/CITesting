@@ -11,26 +11,13 @@ set(SOURCES
    src/ClassA.cpp
 )
 
-target_compile_options(coverage_config INTERFACE
-   -O0        # no optimization
-   -g         # generate debug info
-   --coverage # sets all required flags
-)
-
-target_link_options(coverage_config INTERFACE --coverage)
-
 add_library(
 	libfoo
 	STATIC
 	${SOURCES}
 )
 
-set_target_properties(
-	libfoo
-	PROPERTIES
-	COMPILE_FLAGS "--coverage -std=c++17"
-	LINK_FLAGS "--coverage"
-)
+target_link_libraries(libfoo PUBLIC coverage_config)
 
 target_include_directories(
   libfoo
