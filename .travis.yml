@@ -2,16 +2,20 @@ language: cpp
 compiler: gcc
 
 os: linux
+
+env:
+  matrix:
+    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address -std=c++17" LDFLAGS="--coverage -fsanitize=address" GCOV="--gcov-tool gcov-7"
+
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
+      - lcov
 
 script:
-  - export CC=gcc-7
-  - export CXX=g++-7
   - cmake --version
   - cmake CMakeLists.txt
   - cmake  --build . --target neat
