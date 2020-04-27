@@ -3,10 +3,6 @@ compiler: gcc
 
 os: linux
 
-env:
-  matrix:
-    - BUILD_TYPE=Debug CXXFLAGS="--coverage -fsanitize=address -std=c++17" LDFLAGS="--coverage -fsanitize=address" GCOV="--gcov-tool gcov-7"
-
 addons:
   apt:
     sources:
@@ -18,8 +14,8 @@ addons:
 script:
   - cmake --version
   - cmake CMakeLists.txt
-  - cmake  --build . --target neat
-  
+  - cmake  --build . --target
+
   after_success:
     # Creating report
   - cd ${TRAVIS_BUILD_DIR}
